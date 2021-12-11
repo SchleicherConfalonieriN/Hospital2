@@ -22,17 +22,17 @@
 
 <table id="tabla">
     <thead> 
-		<tr><?php if (count($this->pacientes)>0) echo '
-			<th>Nombre</th>
-			<th>Apellido</th>
-			<th>Dni</th>
-			<th></th>' ?>
+		<tr><?php if (count($this->pacientes)>0) 
+			<th>echo htmlentities('Nombre')</th>
+			<th>echo htmlentities('Apellido')</th>
+			<th>echo htmlentities('Dni')</th>
+			<th></th> ?>
 		</tr>
 	</thead>
 	<tbody id="bodytabla">
 	</tbody>
 </table>
-<?php if (count($this->pacientes)==0) echo  'No se obtuvieron resultados'?>
+<?php if (count($this->pacientes)==0) echo  htmlentities('No se obtuvieron resultados')?>
 <h3><?=$this->mensaje ?></h3>
 
 <br/>
@@ -46,7 +46,7 @@
 		else alert("Debe ingresar por lo menos dos caracteres");
 	}	
 	
-	var datos= <?php echo json_encode($this->pacientes) ?>;
+	var datos= <?php echo htmlentities(json_encode($this->pacientes)) ?>;
 	
 	datos.forEach(function(valor,indice){
 		objTr = document.createElement("tr");
